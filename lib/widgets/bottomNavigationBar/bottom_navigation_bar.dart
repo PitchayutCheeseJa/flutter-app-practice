@@ -2,8 +2,22 @@ import 'package:app/widgets/bottomNavigationBar/bottom_navigation_bar_controller
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppBottomNavigationBar extends StatelessWidget {
+class AppBottomNavigationBar extends StatefulWidget {
+  const AppBottomNavigationBar({Key? key}) : super(key: key);
+
+  @override
+  _AppBottomNavigationBarState createState() => _AppBottomNavigationBarState();
+}
+
+class _AppBottomNavigationBarState extends State<AppBottomNavigationBar>
+    implements BottomNavigationBarView {
   final BottomNavigationBarController controller = Get.find();
+
+  @override
+  void initState() {
+    controller.setView(this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,5 +69,10 @@ class AppBottomNavigationBar extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  changeTab(String path) {
+    Get.offAndToNamed(path);
   }
 }
