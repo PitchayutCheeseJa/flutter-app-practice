@@ -2,77 +2,56 @@ import 'package:app/widgets/bottomNavigationBar/bottom_navigation_bar_controller
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AppBottomNavigationBar extends StatefulWidget {
-  const AppBottomNavigationBar({Key? key}) : super(key: key);
-
-  @override
-  _AppBottomNavigationBarState createState() => _AppBottomNavigationBarState();
-}
-
-class _AppBottomNavigationBarState extends State<AppBottomNavigationBar>
-    implements BottomNavigationBarView {
+class AppBottomNavigationBar extends StatelessWidget {
   final BottomNavigationBarController controller = Get.find();
 
   @override
-  void initState() {
-    controller.setView(this);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => BottomNavigationBar(
-        currentIndex: controller.getCurrentTabIndex(),
-        onTap: (index) {
-          controller.setCurrentTabIndex(index);
-        },
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.green,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 24.0,
-            ),
-            label: "Home",
+    return BottomNavigationBar(
+      currentIndex: controller.getCurrentTabIndex(),
+      onTap: (index) {
+        controller.setCurrentTabIndex(index);
+      },
+      backgroundColor: Colors.white,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: Colors.green,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.home,
+            size: 24.0,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_box,
-              size: 24.0,
-            ),
-            label: "Collection",
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.add_box,
+            size: 24.0,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_circle_outline,
-              size: 24.0,
-            ),
-            label: "POST",
+          label: "Collection",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.add_circle_outline,
+            size: 24.0,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.message_outlined,
-              size: 24.0,
-            ),
-            label: "Message",
+          label: "POST",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.message_outlined,
+            size: 24.0,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_outline,
-              size: 24.0,
-            ),
-            label: "Profile",
+          label: "Message",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.person_outline,
+            size: 24.0,
           ),
-        ],
-      ),
+          label: "Profile",
+        ),
+      ],
     );
-  }
-
-  @override
-  changeTab(String path) {
-    Get.offAndToNamed(path);
   }
 }
