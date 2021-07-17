@@ -1,4 +1,5 @@
 import 'package:app/pages/home/home.dart';
+import 'package:app/pages/home/home_binding.dart';
 import 'package:get/route_manager.dart';
 
 class Routes {
@@ -9,6 +10,7 @@ class Routes {
       GetPage(
         name: home,
         page: () => Home(),
+        binding: HomeBinding(),
       )
     ];
   }
