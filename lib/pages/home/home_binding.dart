@@ -1,9 +1,9 @@
-import 'package:app/widgets/bottomNavigationBar/bottom_navigation_bar_controller.dart';
-import 'package:get/instance_manager.dart';
+import 'package:app/pages/home/home_controller.dart';
+import 'package:get/get.dart';
 
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put<BottomNavigationBarController>(BottomNavigationBarController());
+    Get.put(HomeController());
   }
 }
